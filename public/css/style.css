@@ -1,0 +1,195 @@
+.quadrat {
+    -webkit-animation: blink-queue 0.8s infinite; /* Safari 4+ */
+    -moz-animation: blink-queue 0.8s infinite; /* Fx 5+ */
+    -o-animation: blink-queue 0.8s infinite; /* Opera 12+ */
+    animation: blink-queue 0.8s infinite; /* IE 10+, Fx 29+ */
+    /*border-radius: 50px;*/
+}
+
+.quadrat-horizontal {
+    -webkit-animation: blink-queue 0.8s infinite; /* Safari 4+ */
+    -moz-animation: blink-queue 0.8s infinite; /* Fx 5+ */
+    -o-animation: blink-queue 0.8s infinite; /* Opera 12+ */
+    animation: blink-queue 0.8s infinite; /* IE 10+, Fx 29+ */
+    background-color: #FFFFFF;
+    /*border-radius: 20px;*/
+}
+
+@-webkit-keyframes blink-queue {
+    0%, 49% {
+        background-color: rgba(232, 246, 255, 0.986);
+
+    }
+    50%, 100% {
+        background-color: rgba(134, 211, 255, 0.973);
+        /*border: 2px solid #1CC6FF;*/
+    }
+}
+
+.row-inner-box {
+    margin: 6px 6px;
+    max-width: 600px;
+    height: 100px;
+}
+
+.row-item {
+    max-width: 40%;
+    float: left;
+    height: 100%;
+    border-bottom-color: transparent;
+    border-right: solid 1px gainsboro;
+}
+
+.queue-label {
+    margin-top: 4px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size:72px;
+    -webkit-text-stroke: 3px black;
+}
+
+.label-color-queue {
+    font-size: 25px;
+}
+
+.queue-manage-box {
+    /*min-width: 240px;*/
+    /*margin-right: 24px;*/
+    text-align: center;
+}
+
+@media screen and (min-width: 1850px) {
+    .queue-manage-box {
+        width: 300px !important;
+    }
+}
+
+.queue-manage-inner-box {
+    background-color: #FFFFFF;
+
+    /*min-width: 240px;*/
+    /*margin-right: 24px;*/
+    border: grey 3px solid;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.queue-manage-color-box {
+    border-radius: 9px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom: darkgrey 1px solid;
+    width: 100%;
+    padding-bottom: 4px;
+    padding-top: 12px;
+}
+
+.flex-container {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: flex-start;
+}
+
+.flex-item-dynamic {
+    padding: 3px;
+    /*flex: 0 1 20%;*/
+    /*width: 448px;*/
+}
+
+.queue-content-box { 
+    border-color: beige;
+    border-radius:  0 0 10px 10px ;
+    width: 90%;
+    min-height: 317px;
+    max-height: 750px;
+    background-color: #DDEEFE;
+    padding: 0px 10px;
+    overflow: hidden;
+
+}
+
+.queue-content-header {
+    background-color: #71B7FF;
+    width: 90%;
+    font-size: x-large;
+    font-weight: bold;
+    color: #003B76;
+    border-radius: 10px 10px 0 0;
+}
+
+.queue-col{
+    text-align: center;
+}
+
+.queue-prototype-box{
+        border-color: beige;
+        border-radius:  5px ;
+        border: 5px solid rgb(14, 95, 170) ;
+        width: 100%;
+        height: 13vh;
+        background-color: rgb(255, 255, 255);
+        padding: 5px;
+        font-size: 4vw;
+        color: rgb(0, 73, 141);
+        text-align: center;
+        margin-top: 5px;
+        font-weight: bold;
+}
+
+.queue-prototype-box > .qnumber-label{
+    font-size: 5vw;
+}
+
+.queue-prototype-box2{
+    border-color: beige;
+    border-radius:  5px ;
+    border: 5px solid rgb(14, 95, 170) ;
+    width: 100%;
+    height: 13vh;
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    font-size: 4vw;
+    color: rgb(0, 73, 141);
+    text-align: center;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.queue-prototype-box-small{
+    border-color: beige;
+    border-radius:  5px ;
+    width: 100%;
+    height: auto;
+    background-color: rgb(31, 119, 201);
+    padding: 5px;
+    font-size: 2vw;
+    color: #FFF;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.prototype-box{
+    background-color: rgb(31, 119, 201);
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.btn-light{
+    background: #DDEEFE;
+    border-radius: 5px;
+    border: 0.5px solid #c1e1ff;
+    font-size: 18px;
+}
+
+.btn-light > i {
+    color: #0084ff;
+}
+
+.custom-logo{
+    height: 80px;
+}
