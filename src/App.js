@@ -66,6 +66,7 @@ function App() {
   }, []);
 
   function openModal() {
+    checkupdate();
     getapi()
     setmonitor_code('')
     setprotocalList([])
@@ -76,6 +77,7 @@ function App() {
 
   function closeModal() {
     setIsOpen(false);
+    checkupdate();
   }
 
   function checkupdate() {
@@ -121,12 +123,10 @@ function App() {
         }
       }
       if (playerIndex === playlist.length) {
-        console.log(data[0].call_id)
         fetch(urlHeader + "/api/public-thai-his/flow-runtime?flow_id=1619579538063724300&req=2&qid=" + data[0].call_id)
           .then(res => res.json())
           .then(
             (result) => {
-              console.log("yes")
               datacalllist.shift()
               if(datacalllist.length != 0){
                 audioplay(datacalllist)
@@ -155,7 +155,7 @@ function App() {
         if (playPromise !== undefined) {
           playPromise.then(function () {
           }).catch(function (error) {
-            console.error('playlist', playPromise);
+            
           });
         }
       }
@@ -192,7 +192,7 @@ function App() {
         if (playPromise !== undefined) {
           playPromise.then(function () {
           }).catch(function (error) {
-            console.error('playlist', playPromise);
+            
           });
         }
       }
@@ -216,6 +216,9 @@ function App() {
         // exceptions from actual bugs in components.
         (error) => {
           console.log("99999")
+          setuniList([])
+          setvirsualDept([])
+
         }
       )
   }
@@ -239,6 +242,10 @@ function App() {
     setmonitor_code(event.target.value)
 
   }
+  function handleSelectChange3(event) {
+    seturlHeader(event.target.value)
+    getapi()
+  }
 
 
   async function getqueuecall() {
@@ -247,12 +254,10 @@ function App() {
       .then(res => res.json())
       .then(
         (result) => {
-          console.log(result)
           setmonitorList(result['data']['queueList'])
           if (result['data']['monitorCallList'].length != 0) {
             result['data']['monitorCallList'].map((val) => {
               if (val.call_status == 'PENDING') {
-                console.log(val)
                 datacalllist.push(val)
               } else {
 
@@ -457,12 +462,15 @@ function App() {
           <div className="row form-group">
             <div className="col-md-12">
               <label>หน่วยงาน</label>
-              <select className="form-control" name="dept_id" id="select_dept" onChange={handleSelectChange} >
+              {uniList.length != 0 ?
+                <select className="form-control" name="dept_id" id="select_dept" onChange={handleSelectChange} >
                 <option value={0}>Please select department</option>
                 {uniList.map(fbb =>
                   <option value={fbb.id + "/" + fbb.unit_code + " " + fbb.unit_name}>{fbb.unit_code + " " + fbb.unit_name}</option>
                 )}
-              </select>
+              </select>: <select className="form-control" name="dept_id" id="select_dept">
+                <option value={0}>Please select department</option>
+              </select>}
               <input type="hidden" value="unit_select" name="dept_name" />
             </div>
           </div>
@@ -481,7 +489,7 @@ function App() {
           <div className="row form-group">
             <div className="col-md-12">
               <label>Thaihis URL</label>
-              <input type="text" name="urlHeader" value={urlHeader} className="form-control" />
+              <input type="text" name="urlHeader" value={urlHeader} onChange={handleSelectChange3} className="form-control" />
             </div>
           </div>
         </div>
